@@ -34,7 +34,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /*visibility: hidden; <-- change when done*/
+            visibility: hidden;
         }
 
         .button-container {
@@ -78,19 +78,15 @@
         .buttonSize:hover{
             background-color: rgb(61, 82, 202);
         }
-        #autoButton{
-            border-radius: 5px;
-            transition-duration: 0.4s;
-        }
-        #autoButton:hover{
-            background-color: rgb(61, 82, 202);
-            box-shadow: 0px 0px 70px 10px white;
-        }
+
         .bottomPageButtons-container{
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 5px;
+        }
+        .topButtons{
+            visibility: hidden;
         }
         .topButtons button{
             transition-duration: 0.4s;
@@ -101,12 +97,11 @@
         .topButtons button:hover{
             background-color: rgb(61, 82, 202);
         }
-
-        .bottomButton button{
-            height: 50px;
-            width: 50px;
-            border-radius: 7px;
-            font-size: 25px;
+        .images{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width: auto;
         }
 
     </style>
@@ -121,40 +116,26 @@
               <button onclick="increaseTemp()" id="plusTempButton" class="buttonSize">+</button>
               <button onclick="decreaseTemp()" id="minusTempButton" class="buttonSize">-</button>
             </div>
-            <button onclick="setAuto()" id="autoButton" value="off">Auto</button>
           </div>
         <div class="bottomPageButtons-container">
-            <div class="topButtons">
-                <button onclick="viewFridge">View Fridge</button>
-                <button>View Tv</button>
-                <button>View Internet</button>
-            </div>
-            <div class="bottomButton">
-                <button><i class="fa-solid fa-bars"></i></button>
+            <div class="topButtons" id="allApps">
+                <button onclick="viewFridge()" id="viewFridge" value="shown">View Fridge</button>
+                <button onclick="viewTv()" id="viewTv" value="shown">View Tv</button>
+                <button onclick="viewInternet()" id="viewInternet" value="shown">View Internet</button>
+                <button onclick="viewWeather()" id="viewWeather" value="shown">View Weather</button>
             </div>
         </div>
-        <div>
-            <img id="fridge" src=" ">
+        <div class="images" id="images">
+            <img id="pic" src=" " id="fridgeImage">
+            <img id="pic" src=" " id="tvImage">
+            <img id="pic" src=" " id="internetImage">
+            <img id="pic" src=" " id="weatherImage">
         </div>
           
 </body>
 <script>
 
     globalTemp = 37;
-
-    function setAuto(){
-        autoBut = document.getElementById("autoButton");
-        if (autoBut.value == off){
-            autoBut.value = on;
-            autoBut.style.backgroundColor = "rgb(61, 82, 202)";
-            globalTemp = 37
-            document.getElementById("temp").innerHTML = globalTemp + "º";
-        }
-        else{
-            autoBut.value = off;
-            autoBut.style.backgroundColor = "red";
-        }
-    }
 
     // Increases temp when pressing button
     function increaseTemp(){
@@ -184,13 +165,17 @@
     function thePowerButton(){
         powbutton = document.getElementById("powerButton");
         tempStuff = document.getElementById("allTemp");
+        apps = document.getElementById("allApps")
         time = document.getElementById("timePar");
+        images = document.getElementById("images")
         if (powbutton.value == "off"){
             powbutton.value = "on";
             powbutton.style.backgroundColor =  "rgb(57, 67, 160)";
             powbutton.style.color = "white";
             tempStuff.style.visibility = "visible";
             time.style.visibility = "visible";
+            apps.style.visibility = "visible";
+            images.style.visibility = "visible";
         }
         else{
             powbutton.value = "off";
@@ -198,6 +183,8 @@
             powbutton.style.color = "white";
             tempStuff.style.visibility = "hidden";
             time.style.visibility = "hidden";
+            apps.style.visibility = "hidden";
+            images.style.visibility = "hidden";
         }
     }
     // starts clock
@@ -229,9 +216,29 @@
         outputElement.textContent=timeString;
     }
 
+    // view fridge image
     function viewFridge(){
         var pic = document.getElementById('pic');
-        pic.src = "https://aptokash.github.io/Home/Zieee.jpg"
+        pic.src = "https://aptokash.github.io/SD330/06-fridge.jpg"
+        fridBut = document.getElementById("viewFridge")
+    }
+    // view tv image
+    function viewTv(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://aptokash.github.io/SD330/06-tv.jpg"
+        tvBut = document.getElementById("viewTv")
+    }
+    // view internet image
+    function viewInternet(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://aptokash.github.io/SD330/06-web.jpg"
+        intBut = document.getElementById("viewInternet")
+    }
+    // view internet image
+    function viewWeather(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://beebom.com/wp-content/uploads/2021/05/2.-MSN-Weather-body.jpg"
+        intBut = document.getElementById("viewWeather")
     }
 </script>
 </html>
