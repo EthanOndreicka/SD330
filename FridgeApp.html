@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/f12bd04d75.js' crossorigin='anonymous'></script>
+    <title>Fridge App</title>
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(112, 199, 221);
+            color: white;
+        }
+        #powerButton{
+            border-radius: 10px;
+            background-color: rgb(179, 179, 179);
+            color: white;
+            transition-duration: 0.4s;
+        }
+        #powerButton:hover{
+            cursor: pointer;
+            text-shadow: 0px 0px 20px black;
+        }
+        h1{
+            display: inline;
+            padding-left: 26px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+
+        .button-container button{
+            border-radius: 10px;
+            transition-duration: 0.4s;
+        }
+
+        .button-container button:hover{
+            background-color: rgb(61, 82, 202);
+            box-shadow: 0px 0px 70px 10px white;
+        }
+
+        button {
+            margin-bottom: 10px;
+            border: white;
+            color: white;
+            background-color: rgb(178, 225, 236);
+            font-size: large;
+            cursor: pointer;
+    
+            margin-right: 10px;
+        }
+
+        p#temp {
+            font-size: 100px;
+            margin-right: 10px;
+        }
+
+        .buttonSize{
+            height: 30px;
+            width: 30px;
+            transition-duration: 0s
+        }
+
+        .buttonSize:hover{
+            background-color: rgb(61, 82, 202);
+        }
+
+        .bottomPageButtons-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+        .topButtons{
+            visibility: hidden;
+        }
+        .topButtons button{
+            transition-duration: 0.4s;
+            border-radius: 7px;
+            height: 50px;
+            width: auto;
+        }
+        .topButtons button:hover{
+            background-color: rgb(61, 82, 202);
+        }
+        .images{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width: auto;
+        }
+
+    </style>
+</head>
+<body onload="doStartClock()">
+    <button id="powerButton" style='font-size:24px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+        <h1>Fridge Application</h1>
+        <h1 id="timePar" style="font-family: arial;">00:00:00</h1>
+        <div class="container" id="allTemp">
+            <p id="temp">37º</p>
+            <div class="button-container">
+              <button onclick="increaseTemp()" id="plusTempButton" class="buttonSize">+</button>
+              <button onclick="decreaseTemp()" id="minusTempButton" class="buttonSize">-</button>
+            </div>
+          </div>
+        <div class="bottomPageButtons-container">
+            <div class="topButtons" id="allApps">
+                <button onclick="viewFridge()" id="viewFridge" value="shown">View Fridge</button>
+                <button onclick="viewTv()" id="viewTv" value="shown">View Tv</button>
+                <button onclick="viewInternet()" id="viewInternet" value="shown">View Internet</button>
+                <button onclick="viewWeather()" id="viewWeather" value="shown">View Weather</button>
+            </div>
+        </div>
+        <div class="images" id="images">
+            <img id="pic" src=" " id="fridgeImage">
+            <img id="pic" src=" " id="tvImage">
+            <img id="pic" src=" " id="internetImage">
+            <img id="pic" src=" " id="weatherImage">
+        </div>
+          
+</body>
+<script>
+
+    globalTemp = 37;
+
+    // Increases temp when pressing button
+    function increaseTemp(){
+        increaseButton = document.getElementById("plusTempButton");
+        globalTemp += 1;
+        document.getElementById("temp").innerHTML = globalTemp + "º";
+        if (globalTemp >= 40){
+            increaseButton.style.visibility = "hidden";
+        }
+        if (globalTemp > 32){
+            lowerButton.style.visibility = "visible";
+        }
+    }
+    // Decreases temp when pressing button
+    function decreaseTemp(){
+        lowerButton = document.getElementById("minusTempButton");
+        globalTemp -= 1;
+        document.getElementById("temp").innerHTML = globalTemp + "º";
+        if (globalTemp <= 32){
+            lowerButton.style.visibility = "hidden";
+        }
+        if (globalTemp < 40){
+            increaseButton.style.visibility = "visible";
+        }
+    }
+    // "turns fridge off and on"
+    function thePowerButton(){
+        powbutton = document.getElementById("powerButton");
+        tempStuff = document.getElementById("allTemp");
+        apps = document.getElementById("allApps")
+        time = document.getElementById("timePar");
+        images = document.getElementById("images")
+        if (powbutton.value == "off"){
+            powbutton.value = "on";
+            powbutton.style.backgroundColor =  "rgb(57, 67, 160)";
+            powbutton.style.color = "white";
+            tempStuff.style.visibility = "visible";
+            time.style.visibility = "visible";
+            apps.style.visibility = "visible";
+            images.style.visibility = "visible";
+        }
+        else{
+            powbutton.value = "off";
+            powbutton.style.backgroundColor = "rgb(179, 179, 179)";
+            powbutton.style.color = "white";
+            tempStuff.style.visibility = "hidden";
+            time.style.visibility = "hidden";
+            apps.style.visibility = "hidden";
+            images.style.visibility = "hidden";
+        }
+    }
+    // starts clock
+    function doStartClock(){
+        setInterval(doClockTick, 1000);
+    }
+    // clock function
+    function doClockTick(){
+        var currentDate = new Date();
+        var mid = 'pm';
+        var twentyFourHour = currentDate.getHours();
+        if (twentyFourHour < 12){
+           mid = 'am';
+        }
+        var hours = currentDate.getHours();
+        if (hours > 12){
+            hours = hours - 12;
+        }
+        if (hours == 0){
+            hours = 12;
+        }
+        var mins = currentDate.getMinutes();
+        if (mins < 10){
+            mins = "0" + mins;
+        }
+        var timeString = hours+ ":" + mins + mid;       
+
+        var outputElement = document.getElementById("timePar");
+        outputElement.textContent=timeString;
+    }
+
+    // view fridge image
+    function viewFridge(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://aptokash.github.io/SD330/06-fridge.jpg"
+        fridBut = document.getElementById("viewFridge")
+    }
+    // view tv image
+    function viewTv(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://aptokash.github.io/SD330/06-tv.jpg"
+        tvBut = document.getElementById("viewTv")
+    }
+    // view internet image
+    function viewInternet(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://aptokash.github.io/SD330/06-web.jpg"
+        intBut = document.getElementById("viewInternet")
+    }
+    // view internet image
+    function viewWeather(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://beebom.com/wp-content/uploads/2021/05/2.-MSN-Weather-body.jpg"
+        intBut = document.getElementById("viewWeather")
+    }
+</script>
+</html>
