@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<style>
+    *{
+        font-family: Arial;
+    }
+</style>
+<html>
+    <body>
+        <p id="info"></p>
+        <script type="module">
+            let htmlString = "<h2> An intro to JSON </h2>";
+
+            const course = {number: 330, title: "System Design", credits:4};
+            htmlString += "The value of  <b> course.number </b> is " + course.number + "<br>";
+            
+            htmlString += 'The value of  <b> course.credits </b> is ' + course.credits;
+
+            const courses = {
+                330: {
+                    title: "System Design",
+                    credits: "4"
+                },
+                306: {
+                    title: "Data Comm",
+                    credits: "4"
+                }
+            }
+
+            htmlString += '<p> The value of <b> courses[330].title </b> is ' + courses[330].title;
+
+           const response = await fetch("https://aptokash.github.io/SD330/10a-SampleObjects.json");
+           const data = await response.json();
+
+           htmlString += '<p>The adult access: ' + data['userTypes']['adult']['access'];
+           htmlString += '<p>The adult password: ' + data['userTypes']['adult']['password']; 
+            document.getElementById("info").innerHTML += htmlString;
+        </script>
+    </body>
+</html>
