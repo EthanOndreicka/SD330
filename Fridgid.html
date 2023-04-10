@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/f12bd04d75.js' crossorigin='anonymous'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Fridgid</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: rgb(154, 205, 253);
+            display: grid;
+            place-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .screen{
+            margin-top: 50px;
+            width: 800px;
+            height: 500px;
+            background-color: white;
+            position: absolute;
+            border-radius: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #powerButton{
+            border-radius: 10px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            transition-duration: 0.2s;
+            border: none;
+            position: absolute;
+            top: 7px;
+            left: 10px;
+        }
+        #powerButton:hover{
+            cursor: pointer;
+            background-color: rgb(117, 117, 117);
+        }
+        #logo{
+            font-weight: 500;
+            font-size: 30px;
+            position: absolute;
+            left: 50px;
+            top: -25px;
+        }
+        #timePar{
+            position: absolute;
+            right: 30px;
+            top: -10px;
+        }
+        #temp {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+        }
+
+        #currentTemp{
+            position: absolute;
+            left: 38%;
+            top: 30%;
+        }
+
+        #tempButtons {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 51%;
+            left: calc(50% + 100px); /* adjust the left value based on your desired spacing */
+            transform: translateY(-50%);    
+        }
+
+        #increaseButton,
+        #decreaseButton {
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 10px;   
+            border-radius: 30px;      
+            border: none;
+            transition-duration: 0.5s;
+        }
+
+        #increaseButton:hover, #decreaseButton:hover{
+            background-color: rgb(29, 29, 29);
+            color: white;
+            cursor: pointer;
+        }
+
+        .app-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .app-container button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: rgb(233, 232, 232);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        .app-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 27%;
+        }
+
+        .app-button-container button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+        
+
+</style>
+  
+    </style>
+</head>
+<body onload="doStartClock()">
+    <div class="screen-group">
+        <div class="screen" id="offScreen">
+            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+            <h2 id="logo">Fridgid</h2>
+        </div>
+        <div class="screen" id="homeScreen">
+            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+            <h2 id="logo">Fridgid</h2>
+            <h2 id="timePar" style="font-family: arial;">00:00:00</h2>
+            <div class="temp-container">
+                <p id="currentTemp">Current Temperature</p>
+                <p id="temp">37º<span style="font-size: 30px;">F</span></p>
+                <div id="tempButtons">
+                    <button id="increaseButton">+</button>
+                    <button id="decreaseButton">-</button>
+                </div>
+            </div>
+            <div class="app-container">
+                <button id="fridgeButton">Fridge</button>
+                <button id="tvButton">TV</button>
+                <button id="browserButton">Browser</button>
+                <button id="appsButton"><i class="fa-solid fa-shapes"></i></button>
+            </div>
+        </div>
+        <div class="screen" id="appsScreen">
+            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+            <h2 id="logo">Fridgid</h2>
+            <div class="app-button-container">
+                <div class="row">
+                    <button id="viewFridge"><span class="material-symbols-outlined" style="font-size: 80px;">kitchen</span></button>
+                    <button id="viewTv"><span class="material-symbols-outlined" style="font-size: 80px;">tv</span></button>
+                    <button id="viewInternet"><span class="material-symbols-outlined" style="font-size: 80px;">language</span></button>
+                    <button id="viewShoppingList"><span class="material-symbols-outlined" style="font-size: 80px;">list_alt</span></button>
+                    <button id="viewMusic"><span class="material-symbols-outlined" style="font-size: 80px;">music_note</span></button>
+                </div>
+                <div class="row">
+                    <button id="viewWeather"><span class="material-symbols-outlined" style="font-size: 80px;">partly_cloudy_day</span></button>
+                    <button id="viewTimer"><span class="material-symbols-outlined" style="font-size: 80px;">alarm_on</span></button>
+                    <button id="viewAppStore"><span class="material-symbols-outlined" style="font-size: 80px;">shopping_bag</span></button>
+                    <button id="viewYoutube"><span class="material-symbols-outlined" style="font-size: 80px;">youtube_activity</span></button>
+                    <button id="viewSettings"><span class="material-symbols-outlined" style="font-size: 80px;">settings</span></button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<footer>
+    <script>
+        function thePowerButton(){
+            powbutton = document.getElementById("powerButton");
+            if (powbutton.value == "off"){
+                powbutton.value = "on";
+                powbutton.style.backgroundColor =  "rgb(57, 67, 160)";
+                powbutton.style.color = "white";
+            }
+            else{
+                powbutton.value = "off";
+                powbutton.style.backgroundColor = "rgb(179, 179, 179)";
+                powbutton.style.color = "white";
+            }
+        }
+
+        // starts clock
+        function doStartClock(){
+            setInterval(doClockTick, 1000);
+        }
+        // clock function
+        function doClockTick(){
+            var currentDate = new Date();
+            var mid = 'pm';
+            var twentyFourHour = currentDate.getHours();
+            if (twentyFourHour < 12){
+                mid = 'am';
+            }
+            var hours = currentDate.getHours();
+            if (hours > 12){
+                hours = hours - 12;
+            }
+            if (hours == 0){
+                hours = 12;
+            }
+            var mins = currentDate.getMinutes();
+            if (mins < 10){
+                mins = "0" + mins;
+            }
+            var timeString = hours+ ":" + mins + mid;       
+
+            var outputElement = document.getElementById("timePar");
+            outputElement.textContent=timeString;
+        }
+
+    </script>
+</footer>
+</html>
