@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/f12bd04d75.js' crossorigin='anonymous'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Fridgid</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: rgb(154, 205, 253);
+            display: grid;
+            place-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .screen{
+            margin-top: 50px;
+            width: 800px;
+            height: 500px;
+            background-color: white;
+            position: absolute;
+            border-radius: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #powerButton{
+            border-radius: 10px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            transition-duration: 0.2s;
+            border: none;
+            position: absolute;
+            top: 7px;
+            left: 10px;
+        }
+        #powerButton:hover{
+            cursor: pointer;
+            background-color: rgb(117, 117, 117);
+        }
+        #logo{
+            font-weight: 500;
+            font-size: 30px;
+            position: absolute;
+            left: 50px;
+            top: -25px;
+        }
+        #timePar{
+            position: absolute;
+            right: 30px;
+            top: -10px;
+        }
+        #temp {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+        }
+
+        #currentTemp{
+            position: absolute;
+            left: 38%;
+            top: 30%;
+        }
+
+        #tempButtons {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 51%;
+            left: calc(50% + 100px); /* adjust the left value based on your desired spacing */
+            transform: translateY(-50%);    
+        }
+
+        #increaseButton,
+        #decreaseButton {
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 10px;   
+            border-radius: 30px;      
+            border: none;
+            transition-duration: 0.5s;
+        }
+
+        #increaseButton:hover, #decreaseButton:hover{
+            background-color: rgb(29, 29, 29);
+            color: white;
+            cursor: pointer;
+        }
+
+        .app-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .app-container button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: rgb(233, 232, 232);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        .app-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 27%;
+        }
+
+        .app-button-container button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        #backButton{
+            position: absolute;
+            left: 5%;
+            bottom: 5%;
+            border-radius: 45%;
+            border: none;
+            background-color: #f2f2f2;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        #backButton:hover{
+            background-color: rgb(29, 29, 29);
+            color: white;
+        }
+        #backAppButton{
+            visibility: hidden;
+            position: absolute;
+            left: 5%;
+            bottom: 5%;
+            border-radius: 45%;
+            border: none;
+            background-color: #fafafa;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        #backAppButton:hover{
+            background-color: rgb(29, 29, 29);
+            color: white;
+        }
+
+        #viewFridge{
+            background: rgb(58,93,180);
+            background: linear-gradient(351deg, rgba(58,93,180,1) 0%, rgba(69,146,252,1) 100%);
+        }
+        #viewTv{
+            background: rgb(245,59,31);
+            background: linear-gradient(351deg, rgba(245,59,31,1) 0%, rgba(237,148,0,1) 100%);
+        }
+        #viewInternet{
+            background: rgb(93,251,134);
+            background: linear-gradient(351deg, rgba(93,251,134,1) 0%, rgba(0,150,237,1) 100%);
+        }
+        #viewShoppingList{
+            background: rgb(127,8,205);
+            background: linear-gradient(351deg, rgba(127,8,205,1) 0%, rgba(237,0,236,1) 100%);
+        }
+        #viewMusic{
+            background: rgb(4,115,22);
+            background: linear-gradient(351deg, rgba(4,115,22,1) 0%, rgba(55,237,0,1) 100%);
+        }
+        #viewWeather{
+            background: rgb(240,252,20);
+            background: linear-gradient(351deg, rgba(240,252,20,1) 24%, rgba(255,8,241,1) 100%);
+        }
+        #viewTimer{
+            background: rgb(20,252,200);
+            background: linear-gradient(351deg, rgba(20,252,200,1) 0%, rgba(56,226,155,1) 100%);
+        }
+        #viewAppStore{
+            background: rgb(7,6,110);
+            background: linear-gradient(351deg, rgba(7,6,110,1) 0%, rgba(56,190,226,1) 100%);
+        }
+        #viewYoutube{
+            background: rgb(110,6,6);
+            background: linear-gradient(351deg, rgba(110,6,6,1) 0%, rgba(226,56,56,1) 100%);
+        }
+        #viewSettings{
+            background: rgb(38,38,38);
+            background: linear-gradient(167deg, rgba(38,38,38,1) 0%, rgba(200,200,200,1) 100%);
+        }
+
+        #viewFridge:hover, #viewTv:hover, #viewInternet:hover, #viewShoppingList:hover, #viewMusic:hover, #viewWeather:hover, #viewTimer:hover, #viewAppStore:hover, #viewYoutube:hover, #viewSettings:hover{
+            background: gray;
+            cursor: pointer;
+        }
+
+        #pic{
+            position: absolute;
+            height: 400px;
+            width: 400px;
+            top: 10%;
+            left: 35%;
+        }
+
+        img{
+            visibility: hidden;
+        }
+        
+
+</style>
+  
+    </style>
+</head>
+<body onload="doStartClock()">
+    <div class="screen-group">
+        <div class="screen" id="offScreen">
+            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+            <h2 id="logo">Fridgid</h2>
+        </div>
+        <div class="screen" id="homeScreen">
+            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+            <h2 id="logo">Fridgid</h2>
+            <h2 id="timePar" style="font-family: arial;">00:00:00</h2>
+            <div class="temp-container">
+                <p id="currentTemp">Current Temperature</p>
+                <p id="temp">37º<span style="font-size: 30px;">F</span></p>
+                <div id="tempButtons">
+                    <button id="increaseButton">+</button>
+                    <button id="decreaseButton">-</button>
+                </div>
+            </div>
+            <div class="app-container">
+                <button id="fridgeButton">Fridge</button>
+                <button id="tvButton">TV</button>
+                <button id="browserButton">Browser</button>
+                <button id="appsButton"><i class="fa-solid fa-shapes"></i></button>
+            </div>
+        </div>
+        <div class="screen" id="appsScreen">
+            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+            <h2 id="logo">Fridgid</h2>
+            <div class="app-button-container" id="allApps">
+                <div class="row">
+                    <button id="viewFridge" onclick="viewFridge()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">kitchen</span></button>
+                    <button id="viewTv" onclick="viewTv()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">tv</span></button>
+                    <button id="viewInternet" onclick="viewInternet()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">language</span></button>
+                    <button id="viewShoppingList" onclick="viewShoppingList()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">list_alt</span></button>
+                    <button id="viewMusic" onclick="viewMusic()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">music_note</span></button>
+                </div>
+                <div class="row">
+                    <button id="viewWeather" onclick="viewWeather()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">partly_cloudy_day</span></button>
+                    <button id="viewTimer" onclick="viewTimer()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">alarm_on</span></button>
+                    <button id="viewAppStore" onclick="viewAppStore()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">shopping_bag</span></button>
+                    <button id="viewYoutube" onclick="viewYoutube()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">youtube_activity</span></button>
+                    <button id="viewSettings" onclick="viewSettings()" value="shown"><span class="material-symbols-outlined" style="font-size: 80px; color: white;">settings</span></button>
+                </div>
+            </div>
+            <button id="backAppButton" onclick="backToApp()"><span class="material-symbols-outlined" style="font-size: 45px;">chevron_left</span></button>
+            <button id="backButton"><span class="material-symbols-outlined" style="font-size: 45px;">chevron_left</span></button>
+        </div>
+
+        <div class="images" id="images">
+            <img id="pic" src=" " id="fridgeImage">
+            <img id="pic" src=" " id="tvImage">
+            <img id="pic" src=" " id="internetImage">
+            <img id="pic" src=" " id="weatherImage">
+        </div>
+
+        <div class="shopList">
+            <h2>Shopping List</h2>
+            <ul id="myList">
+                <li>Dog Food</li>
+                <li>Nesquik</li>
+                <li>Apples</li>
+                <li>Milk</li>
+                <li>Chicken</li>
+            </ul>
+
+            <label for="newItem">Add new Item:</label>
+            <input type="text" id="newItem">
+            <button onclick="addItem()">+</button>
+        </div>
+        
+    </div>
+</body>
+<footer>
+    <script>
+
+        function addItem(){
+            var input = document.getElementById("newItem").value;
+            var ul = document.getElementById("myList");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(input));
+            ul.appendChild(li);
+        }
+
+        function thePowerButton(){
+            powbutton = document.getElementById("powerButton");
+            if (powbutton.value == "off"){
+                powbutton.value = "on";
+                powbutton.style.backgroundColor =  "rgb(57, 67, 160)";
+                powbutton.style.color = "white";
+            }
+            else{
+                powbutton.value = "off";
+                powbutton.style.backgroundColor = "rgb(179, 179, 179)";
+                powbutton.style.color = "white";
+            }
+        }
+
+        // starts clock
+        function doStartClock(){
+            setInterval(doClockTick, 1000);
+        }
+        // clock function
+        function doClockTick(){
+            var currentDate = new Date();
+            var mid = 'pm';
+            var twentyFourHour = currentDate.getHours();
+            if (twentyFourHour < 12){
+                mid = 'am';
+            }
+            var hours = currentDate.getHours();
+            if (hours > 12){
+                hours = hours - 12;
+            }
+            if (hours == 0){
+                hours = 12;
+            }
+            var mins = currentDate.getMinutes();
+            if (mins < 10){
+                mins = "0" + mins;
+            }
+            var timeString = hours+ ":" + mins + mid;       
+
+            var outputElement = document.getElementById("timePar");
+            outputElement.textContent=timeString;
+        }
+        function viewFridge(){
+            var pic = document.getElementById('pic');
+            pic.src = "https://www.sandravalvassori.com/wp-content/uploads/2021/04/2020-3260-6-728x811.jpg";
+            fridBut = document.getElementById("viewFridge");
+            tvBut = document.getElementById("viewTv");
+            internetBut = document.getElementById("viewInternet");
+            shoplistBut = document.getElementById("viewShoppingList");
+            musicBut = document.getElementById("viewMusic");
+            weatherBut = document.getElementById("viewWeather");
+            timerBut = document.getElementById("viewTimer");
+            appstoreBut = document.getElementById("viewAppStore");
+            youtubeBut = document.getElementById("viewYoutube");
+            settingsBut = document.getElementById("viewSettings");
+            allAppBut = document.getElementById("allApps");
+            backAppBut = document.getElementById("backAppButton");
+            backBut = document.getElementById("backButton");
+            img = document.getElementById("fridgeImage");
+
+
+            if (fridBut.value == "shown"){
+                fridBut.value = "hidden";
+                allAppBut.style.visibility = "hidden";
+                backAppBut.style.visibility = "visible";
+                backBut.style.visibility = "hidden";
+                img.style.visibility = "shown";
+            }
+            else{
+                fridBut.value = "shown";
+                img.style.visibility = "shown";
+              
+            }
+        }
+
+        function viewInternet(){
+            internetBut = document.getElementById("viewInternet");
+            var pic = document.getElementById('pic');
+            pic.src = "https://davescomputertips.com/wp-content/uploads/2017/06/Google-home-page.jpg";
+            allAppBut = document.getElementById("allApps");
+            backAppBut = document.getElementById("backAppButton");
+            backBut = document.getElementById("backButton");
+
+            if (internetBut.value == "shown"){
+                fridBut.value = "hidden";
+                allAppBut.style.visibility = "hidden";
+                backAppBut.style.visibility = "visible";
+                backBut.style.visibility = "hidden";
+                img.style.visibility = "shown";
+            }
+            else{
+                internetBut.value = "shown";
+                img.style.visibility = "shown";
+              
+            }
+        }
+
+        function viewShoppingList(){
+            shoplistBut = document.getElementById("viewShoppingList");
+            list = document.getElementById("shopList")
+            allAppBut = document.getElementById("allApps");
+            backAppBut = document.getElementById("backAppButton");
+            backBut = document.getElementById("backButton");
+
+
+            if (internetBut.value == "shown"){
+                list.value = "hidden";
+                allAppBut.style.visibility = "hidden";
+                backAppBut.style.visibility = "visible";
+                backBut.style.visibility = "hidden";
+                img.style.visibility = "shown";
+            }
+            else{
+                shoplistBut.value = "shown";
+                img.style.visibility = "shown";
+              
+            }
+        }
+
+        function viewTv() {
+            var pic = document.getElementById('pic');
+            pic.style.height = "300px";
+            pic.style.width = "500px"
+            pic.src = "https://cdn.ecoustics.com/db0/wblob/17BA35E873D594/2A77/42ADA/QSIOdB3Qavm8xqmkHWIKDXncjhGkFCkRJtwcjhpggJY/netflix-homescreen-money-heist.jpg";
+            var tvBut = document.getElementById("viewTv");
+            var allAppBut = document.getElementById("allApps");
+            var backAppBut = document.getElementById("backApp");
+            var backBut = document.getElementById("backBut");
+
+            if (tvBut.value == "shown") {
+                tvBut.value = "hidden";
+                allAppBut.style.visibility = "hidden";
+                backAppBut.style.visibility = "visible";
+                backBut.style.visibility = "hidden";
+            } else {
+                tvBut.value = "shown";
+            }
+
+            backBut.addEventListener("click", function() {
+                pic.src = "";
+                pic.style.display = "none";
+                allAppBut.style.visibility = "visible";
+                backBut.style.visibility = "hidden";
+            });
+            }
+
+
+        function backToApp() {
+            var pic = document.getElementById('pic');
+            pic.src = "";
+            var allAppBut = document.getElementById("allApps");
+            var fridBut = document.getElementById("viewFridge");
+            var tvBut = document.getElementById("viewTv");
+            var img = document.getElementById("fridgeImage");
+            shoplistBut = document.getElementById("viewShoppingList");
+
+            allAppBut.style.visibility = "visible";
+            fridBut.value = "shown";
+            tvBut.value = "shown";
+            shoplistBut.value = "shown";
+            img.style.display = "none";
+            }
+
+        var backAppBut = document.getElementById("backAppButton");
+        backAppBut.addEventListener("click", backToApp);
+
+
+    </script>
+</footer>
+</html>

@@ -107,11 +107,14 @@
     </style>
 </head>
 <body onload="doStartClock()">
+    <audio id="myAudio">
+        <source src="assets/Netflix.mp3" type="audio/mpeg">
+    </audio>
     <button id="powerButton" style='font-size:24px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
         <h1>Fridge Application</h1>
         <h1 id="timePar" style="font-family: arial;">00:00:00</h1>
         <div class="container" id="allTemp">
-            <p id="temp">37º</p>
+            <p id="temp" onclick="changeMetric()" value="f">37º</p>
             <div class="button-container">
               <button onclick="increaseTemp()" id="plusTempButton" class="buttonSize">+</button>
               <button onclick="decreaseTemp()" id="minusTempButton" class="buttonSize">-</button>
@@ -123,6 +126,9 @@
                 <button onclick="viewTv()" id="viewTv" value="shown">View Tv</button>
                 <button onclick="viewInternet()" id="viewInternet" value="shown">View Internet</button>
                 <button onclick="viewWeather()" id="viewWeather" value="shown">View Weather</button>
+                <button onclick="viewShoppingList()" id="viewShoppingList" value="shown">Show Shopping List</button>
+                <button onclick="viewTimer()" id="viewTimer" value="shown">Set Timer</button>
+                <button onclick="viewMusic()" id="viewMusic" value="shown">Play Music</button>
             </div>
         </div>
         <div class="images" id="images">
@@ -219,19 +225,21 @@
     // view fridge image
     function viewFridge(){
         var pic = document.getElementById('pic');
-        pic.src = "https://aptokash.github.io/SD330/06-fridge.jpg"
+        pic.src = "https://www.sandravalvassori.com/wp-content/uploads/2021/04/2020-3260-6-728x811.jpg"
         fridBut = document.getElementById("viewFridge")
     }
     // view tv image
     function viewTv(){
         var pic = document.getElementById('pic');
-        pic.src = "https://aptokash.github.io/SD330/06-tv.jpg"
+        pic.src = "https://cdn.ecoustics.com/db0/wblob/17BA35E873D594/2A77/42ADA/QSIOdB3Qavm8xqmkHWIKDXncjhGkFCkRJtwcjhpggJY/netflix-homescreen-money-heist.jpg"
         tvBut = document.getElementById("viewTv")
+        var sound = document.getElementById("myAudio");
+        sound.play();
     }
     // view internet image
     function viewInternet(){
         var pic = document.getElementById('pic');
-        pic.src = "https://aptokash.github.io/SD330/06-web.jpg"
+        pic.src = "https://davescomputertips.com/wp-content/uploads/2017/06/Google-home-page.jpg"
         intBut = document.getElementById("viewInternet")
     }
     // view internet image
@@ -239,6 +247,21 @@
         var pic = document.getElementById('pic');
         pic.src = "https://beebom.com/wp-content/uploads/2021/05/2.-MSN-Weather-body.jpg"
         intBut = document.getElementById("viewWeather")
+    }
+
+    function viewShoppingList(){
+        
+    }
+
+    function changeMetric(){
+        temperature = document.getElementById("temp");
+        if (temperature.value = "f"){
+            temperature.value = "c"
+            globalTemp = ((globalTemp - 32) * 5/9) 
+        }
+        else if (temperature.value = "c"){
+            globalTemp = ((globalTemp * 9/5) + 32)
+        }
     }
 </script>
 </html>

@@ -4,240 +4,385 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://kit.fontawesome.com/f12bd04d75.js' crossorigin='anonymous'></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <title>Fridgid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/f12bd04d75.js' crossorigin='anonymous'></script>
+    <title>Fridge App</title>
     <style>
         body{
-            margin: 0;
-            background-color: rgb(154, 205, 253);
-            display: grid;
-            place-items: center;
-            font-family: 'Poppins', sans-serif;
-        }
-        .screen{
-            margin-top: 50px;
-            width: 800px;
-            height: 500px;
-            background-color: white;
-            position: absolute;
-            border-radius: 15px;
-            left: 50%;
-            transform: translateX(-50%);
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(112, 199, 221);
+            color: white;
         }
         #powerButton{
             border-radius: 10px;
-            background-color: rgb(0, 0, 0);
+            background-color: rgb(179, 179, 179);
             color: white;
-            transition-duration: 0.2s;
-            border: none;
-            position: absolute;
-            top: 7px;
-            left: 10px;
+            transition-duration: 0.4s;
         }
         #powerButton:hover{
             cursor: pointer;
-            background-color: rgb(117, 117, 117);
+            text-shadow: 0px 0px 20px black;
         }
-        #logo{
-            font-weight: 500;
-            font-size: 30px;
-            position: absolute;
-            left: 50px;
-            top: -25px;
-        }
-        #timePar{
-            position: absolute;
-            right: 30px;
-            top: -10px;
-        }
-        #temp {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 100px;
+        h1{
+            display: inline;
+            padding-left: 26px;
         }
 
-        #currentTemp{
-            position: absolute;
-            left: 38%;
-            top: 30%;
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
         }
 
-        #tempButtons {
+        .button-container {
             display: flex;
             flex-direction: column;
-            position: absolute;
-            top: 51%;
-            left: calc(50% + 100px); /* adjust the left value based on your desired spacing */
-            transform: translateY(-50%);    
+            margin-left: 20px;
         }
 
-        #increaseButton,
-        #decreaseButton {
-            font-size: 20px;
-            padding: 10px;
-            margin-bottom: 10px;   
-            border-radius: 30px;      
-            border: none;
-            transition-duration: 0.5s;
+        .button-container button{
+            border-radius: 10px;
+            transition-duration: 0.4s;
         }
 
-        #increaseButton:hover, #decreaseButton:hover{
-            background-color: rgb(29, 29, 29);
+        .button-container button:hover{
+            background-color: rgb(61, 82, 202);
+            box-shadow: 0px 0px 70px 10px white;
+        }
+
+        button {
+            margin-bottom: 10px;
+            border: white;
             color: white;
+            background-color: rgb(178, 225, 236);
+            font-size: large;
             cursor: pointer;
+    
+            margin-right: 10px;
         }
 
-        .app-container {
+        p#temp {
+            font-size: 100px;
+            margin-right: 10px;
+        }
+
+        .buttonSize{
+            height: 30px;
+            width: 30px;
+            transition-duration: 0s
+        }
+
+        .buttonSize:hover{
+            background-color: rgb(61, 82, 202);
+        }
+
+        .bottomPageButtons-container{
             display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+        .topButtons{
+            visibility: hidden;
+        }
+        .topButtons button{
+            transition-duration: 0.4s;
+            border-radius: 7px;
+            height: 50px;
+            width: auto;
+        }
+        .topButtons button:hover{
+            background-color: rgb(61, 82, 202);
+        }
+        .images{
             justify-content: center;
             align-items: center;
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .app-container button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: rgb(233, 232, 232);
-            color: rgb(0, 0, 0);
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition-duration: 0.5s;
-        }
-
-        .app-button-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+            width: auto;
+        }
+
+        .music-container{
             position: absolute;
-            top: 27%;
+            top: 50%;
+            right: 50%;
         }
 
-        .app-button-container button {
-            margin: 10px;
-            padding: 10px;
-            font-size: 20px;
-            border: none;
-            background-color: #f2f2f2;
-            border-radius: 5px;
+        .music-container button {
+            transition-duration: 0.4s;
         }
 
-        .row {
-            display: flex;
-            justify-content: center;
+        .music-container button:hover{
+            background-color: rgb(61, 82, 202);
         }
-        
 
-</style>
-  
+        #shopList{
+            visibility: hidden;
+        }
+
+        #music-container{
+            visibility: hidden;
+        }
+
+        .timer{
+            position: absolute;
+            bottom: 30%;
+            right: 10%;
+            font-size: 40px;
+            visibility: hidden;
+        }
+
     </style>
 </head>
 <body onload="doStartClock()">
-    <div class="screen-group">
-        <div class="screen" id="offScreen">
-            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
-            <h2 id="logo">Fridgid</h2>
-        </div>
-        <div class="screen" id="homeScreen">
-            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
-            <h2 id="logo">Fridgid</h2>
-            <h2 id="timePar" style="font-family: arial;">00:00:00</h2>
-            <div class="temp-container">
-                <p id="currentTemp">Current Temperature</p>
-                <p id="temp">37º<span style="font-size: 30px;">F</span></p>
-                <div id="tempButtons">
-                    <button id="increaseButton">+</button>
-                    <button id="decreaseButton">-</button>
-                </div>
-            </div>
-            <div class="app-container">
-                <button id="fridgeButton">Fridge</button>
-                <button id="tvButton">TV</button>
-                <button id="browserButton">Browser</button>
-                <button id="appsButton"><i class="fa-solid fa-shapes"></i></button>
+    <audio id="myAudio">
+        <source src="assets/Netflix.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myAudio2">
+        <source src="assets/Ye.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myAudio3">
+        <source src="assets/Alarm.mp3" type="audio/mpeg">
+    </audio>
+
+    </audio>
+    <button id="powerButton" style='font-size:24px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
+        <h1>Fridgid</h1>
+        <h1 id="timePar" style="font-family: arial;">00:00:00</h1>
+        <div class="container" id="allTemp">
+            <p id="temp" value="f">37º</p>
+            <div class="button-container">
+              <button onclick="increaseTemp()" id="plusTempButton" class="buttonSize">+</button>
+              <button onclick="decreaseTemp()" id="minusTempButton" class="buttonSize">-</button>
             </div>
         </div>
-        <div class="screen" id="appsScreen">
-            <button id="powerButton" style='font-size:20px' value="off" onclick="thePowerButton()"><i class='fas fa-power-off'></i></button>
-            <h2 id="logo">Fridgid</h2>
-            <div class="app-button-container">
-                <div class="row">
-                    <button id="viewFridge"><span class="material-symbols-outlined" style="font-size: 80px;">kitchen</span></button>
-                    <button id="viewTv"><span class="material-symbols-outlined" style="font-size: 80px;">tv</span></button>
-                    <button id="viewInternet"><span class="material-symbols-outlined" style="font-size: 80px;">language</span></button>
-                    <button id="viewShoppingList"><span class="material-symbols-outlined" style="font-size: 80px;">list_alt</span></button>
-                    <button id="viewMusic"><span class="material-symbols-outlined" style="font-size: 80px;">music_note</span></button>
-                </div>
-                <div class="row">
-                    <button id="viewWeather"><span class="material-symbols-outlined" style="font-size: 80px;">partly_cloudy_day</span></button>
-                    <button id="viewTimer"><span class="material-symbols-outlined" style="font-size: 80px;">alarm_on</span></button>
-                    <button id="viewAppStore"><span class="material-symbols-outlined" style="font-size: 80px;">shopping_bag</span></button>
-                    <button id="viewYoutube"><span class="material-symbols-outlined" style="font-size: 80px;">youtube_activity</span></button>
-                    <button id="viewSettings"><span class="material-symbols-outlined" style="font-size: 80px;">settings</span></button>
-                </div>
+        <div class="bottomPageButtons-container">
+            <div class="topButtons" id="allApps">
+                <button onclick="viewFridge()" id="viewFridge" value="shown">View Fridge</button>
+                <button onclick="viewTv()" id="viewTv" value="shown">View Tv</button>
+                <button onclick="viewInternet()" id="viewInternet" value="shown">View Internet</button>
+                <button onclick="viewWeather()" id="viewWeather" value="shown">View Weather</button>
+                <button onclick="viewTimer()" id="viewTimer" value="shown">Set Timer</button>
+                <button onclick="timeFormat()" id="timeFormat" value="off">Switch 12/24 Clock</button>
+                <button onclick="weatherFormat()" id="weatherFormat" value="shown">Switch ºF or ºC</button>
+            
             </div>
         </div>
-        
-    </div>
+        <div class="music-container" id="music-container">
+            <button onclick="viewMusic()" id="viewMusic" value="off">Play Music</button>
+            <button onclick="pauseMusic()" id="pauseMusic" value=off>Pause Music</button>
+        </div>
+
+        <div class="timer" id="timer">
+            <p id="theTimer">No Current Timer</p>
+        </div>
+
+        <div class="shopList" id="shopList">
+            <h2>Shopping List</h2>
+            <ul id="myList">
+                <li>Dog Food</li>
+                <li>Nesquik</li>
+                <li>Apples</li>
+                <li>Milk</li>
+                <li>Chicken</li>
+            </ul>
+
+            <label for="newItem">Add new Item:</label>
+            <input type="text" id="newItem">
+            <button onclick="addItem()">+</button>
+        </div>
+        <div class="images" id="images">
+            <img id="pic" src=" " id="fridgeImage">
+            <img id="pic" src=" " id="tvImage">
+            <img id="pic" src=" " id="internetImage">
+            <img id="pic" src=" " id="weatherImage">
+        </div>
+          
 </body>
-<footer>
-    <script>
-        function thePowerButton(){
-            powbutton = document.getElementById("powerButton");
-            if (powbutton.value == "off"){
-                powbutton.value = "on";
-                powbutton.style.backgroundColor =  "rgb(57, 67, 160)";
-                powbutton.style.color = "white";
-            }
-            else{
-                powbutton.value = "off";
-                powbutton.style.backgroundColor = "rgb(179, 179, 179)";
-                powbutton.style.color = "white";
-            }
-        }
+<script>
 
-        // starts clock
-        function doStartClock(){
-            setInterval(doClockTick, 1000);
-        }
-        // clock function
-        function doClockTick(){
-            var currentDate = new Date();
-            var mid = 'pm';
-            var twentyFourHour = currentDate.getHours();
-            if (twentyFourHour < 12){
-                mid = 'am';
-            }
-            var hours = currentDate.getHours();
-            if (hours > 12){
-                hours = hours - 12;
-            }
-            if (hours == 0){
-                hours = 12;
-            }
-            var mins = currentDate.getMinutes();
-            if (mins < 10){
-                mins = "0" + mins;
-            }
-            var timeString = hours+ ":" + mins + mid;       
+    globalTemp = 37;
 
-            var outputElement = document.getElementById("timePar");
-            outputElement.textContent=timeString;
+    // Increases temp when pressing button
+    function increaseTemp(){
+        increaseButton = document.getElementById("plusTempButton");
+        globalTemp += 1;
+        document.getElementById("temp").innerHTML = globalTemp + "º";
+        if (globalTemp >= 40){
+            increaseButton.style.visibility = "hidden";
         }
+        if (globalTemp > 32){
+            lowerButton.style.visibility = "visible";
+        }
+    }
+    // Decreases temp when pressing button
+    function decreaseTemp(){
+        lowerButton = document.getElementById("minusTempButton");
+        globalTemp -= 1;
+        document.getElementById("temp").innerHTML = globalTemp + "º";
+        if (globalTemp <= 32){
+            lowerButton.style.visibility = "hidden";
+        }
+        if (globalTemp < 40){
+            increaseButton.style.visibility = "visible";
+        }
+    }
+    // "turns fridge off and on"
+    function thePowerButton(){
+        powbutton = document.getElementById("powerButton");
+        tempStuff = document.getElementById("allTemp");
+        apps = document.getElementById("allApps")
+        time = document.getElementById("timePar");
+        images = document.getElementById("images")
+        shoppingList = document.getElementById("shopList");
+        musicContainer = document.getElementById("music-container");
+        timerWords = document.getElementById("timer");
+        if (powbutton.value == "off"){
+            powbutton.value = "on";
+            powbutton.style.backgroundColor =  "rgb(57, 67, 160)";
+            powbutton.style.color = "white";
+            tempStuff.style.visibility = "visible";
+            time.style.visibility = "visible";
+            apps.style.visibility = "visible";
+            images.style.visibility = "visible";
+            shoppingList.style.visibility = "visible";
+            musicContainer.style.visibility = "visible";
+            timerWords.style.visibility = "visible";
+        }
+        else{
+            powbutton.value = "off";
+            powbutton.style.backgroundColor = "rgb(179, 179, 179)";
+            powbutton.style.color = "white";
+            tempStuff.style.visibility = "hidden";
+            time.style.visibility = "hidden";
+            apps.style.visibility = "hidden";
+            images.style.visibility = "hidden";
+            shoppingList.style.visibility = "hidden";
+            musicContainer.style.visibility = "hidden";
+            timerWords.style.visibility = "hidden";
+        }
+    }
+    // starts clock
+    function doStartClock(){
+        setInterval(doClockTick, 1000);
+    }
 
-    </script>
-</footer>
+    // view fridge image
+    function viewFridge(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://www.sandravalvassori.com/wp-content/uploads/2021/04/2020-3260-6-728x811.jpg"
+        fridBut = document.getElementById("viewFridge")
+    }
+    // view tv image
+    function viewTv(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://cdn.ecoustics.com/db0/wblob/17BA35E873D594/2A77/42ADA/QSIOdB3Qavm8xqmkHWIKDXncjhGkFCkRJtwcjhpggJY/netflix-homescreen-money-heist.jpg"
+        tvBut = document.getElementById("viewTv")
+        var sound = document.getElementById("myAudio");
+        sound.play();
+    }
+    // view internet image
+    function viewInternet(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://davescomputertips.com/wp-content/uploads/2017/06/Google-home-page.jpg"
+        intBut = document.getElementById("viewInternet")
+    }
+    // view internet image
+    function viewWeather(){
+        var pic = document.getElementById('pic');
+        pic.src = "https://beebom.com/wp-content/uploads/2021/05/2.-MSN-Weather-body.jpg"
+        intBut = document.getElementById("viewWeather")
+    }
+
+    function viewMusic(){
+        var sound = document.getElementById("myAudio2");
+        sound.play();
+
+    }
+    function pauseMusic(){
+        var sound = document.getElementById("myAudio2");
+        sound.pause();
+    }
+
+    function weatherFormat(){
+        temperature = document.getElementById("temp");
+        if (temperature.value == "f"){
+            temperature.value = "c"
+            globalTemp = ((globalTemp - 32) * 5/9) 
+            globalTemp.textContent=temperature
+        }
+        else{
+            globalTemp = ((globalTemp * 9/5) + 32)
+            globalTemp.textContent=temperature
+        }
+    }
+
+    function addItem(){
+            var input = document.getElementById("newItem").value;
+            var ul = document.getElementById("myList");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(input));
+            ul.appendChild(li);
+    }
+
+    function timeFormat(){
+        var dt = new Date();
+        var hours = dt.getHours(); // gives the value in 24 hours format
+        var minutes = dt.getMinutes() ; 
+        var finalTime = hours + ":" + minutes; 
+
+        var date = new Date();
+        var hours = date.getHours() ; // gives the value in 24 hours format
+        var AmOrPm = hours >= 12 ? 'pm' : 'am';
+        hours = (hours % 12) || 12;
+        var minutes = date.getMinutes() ;
+        var newFinalTime = hours + ":" + minutes + " " + AmOrPm; 
+
+        timeBut = document.getElementById("timeFormat");
+        var outputElement = document.getElementById("timePar");
+        if (timeBut.value == "off"){
+            timeBut.value = "on";
+            outputElement.textContent=finalTime;
+        }
+        else{
+            timeBut.value = "off"
+            outputElement.textContent=newFinalTime;
+        }
+        
+    }
+
+    function viewTimer(){
+        var timer = 60; // 60 seconds
+        var display = document.getElementById("theTimer");
+        display.innerHTML = "01:00"; // initial display
+
+        var interval = setInterval(function() {
+            timer--;
+            var minutes = Math.floor(timer / 60);
+            var seconds = timer % 60;
+            var displayMinutes = minutes < 10 ? "0" + minutes : minutes;
+            var displaySeconds = seconds < 10 ? "0" + seconds : seconds;
+        display.innerHTML = "<p>"+displayMinutes + ":" + displaySeconds;
+
+        if (timer == 0) {
+            muAudio3.play();
+            //tiBut.value = "Start timer"
+            clearInterval(interval);
+            }
+        }, 1000); // update every second
+
+        var stopButton = document.getElementById("viewTimer");
+        stopButton.addEventListener("click", function() {
+            clearInterval(interval);
+            timer = 60;
+            display.innerHTML = "01:00";
+        });
+
+    }
+
+
+
+</script>
 </html>
