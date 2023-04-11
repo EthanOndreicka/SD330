@@ -1,1 +1,68 @@
-<h1> Hello World </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github File List</title>
+    <style>
+        body{
+            font-family: arial;
+            background-image: linear-gradient(rgba(22, 22, 22, 0.699),rgba(8, 8, 8, 0.897)), url('https://www.fmsp.com/wp-content/uploads/2018/02/Marist-College-Student-Center-Rotunda-_1.jpg');
+            background-size: 150% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+        }
+        h1{
+            color: white;
+            text-align: center;
+            padding-top: 40px;
+        }
+        p{
+            color: white;
+            text-align: center;
+        }
+        #content-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            font-size: 30px;
+        }
+        #content-list li{
+            margin-bottom: 30px;
+            padding-left: 100px;
+        }
+        #content-list li a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Repository Content Viewer</h1>
+    <ul id="content-list"></ul>
+
+    <script>
+      const username = "EthanOndreicka";
+      const repository = "SD330";
+      const apiUrl = `https://api.github.com/repos/${username}/${repository}/contents`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const contentList = document.getElementById("content-list");
+          data.forEach(item => {
+            const listItem = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = item.html_url;
+            link.target = "_blank";
+            link.textContent = item.name;
+            listItem.appendChild(link);
+            contentList.appendChild(listItem);
+          });
+        })
+        .catch(error => console.error(error));
+    </script>
+</body>
+</html>
