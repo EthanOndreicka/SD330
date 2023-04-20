@@ -22,13 +22,13 @@
     },
 
     "books":{
-        "416Book": {
+        "SysBook": {
             "book_isbn": "9781119736264",
             "book_title": "CompTIA Security+ Study Guide",
             "book_author": "Mike Chapple, David Seidl",
             "book_course_id": "416"
         },
-        "330Book" : {
+        "CysBook" : {
             "book_isbn":"9781119547303",
             "book_title" : "Interaction Design",
             "book_author" : " Helen Sharp, Jennifer Preece, Yvonne Rogers",
