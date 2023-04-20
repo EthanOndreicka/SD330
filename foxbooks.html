@@ -21,9 +21,9 @@
             const data = await response.json();
             htmlString += "<p>Course Name: " + data['courseName']['CMPT330']['course_title'];
             htmlString += "<p>Course Semester: " + data['courseName']['CMPT330']['course_semester'];
-            htmlString += "<p>Book Author: " + data['books']['book']['book_author'];
-            htmlString += "<p>Current Class: " + data['courseName']['CMPT330']['course_title'];
-            htmlString += "<p> Current Class' Book: " + data['books']['330Book']['book_title'];
+            htmlString += "<p>Book Author: " + data['books']['416Book']['book_author'];
+            //htmlString += "<p>Current Class: " + data['courseName']['CMPT330']['course_title'];
+            //htmlString += "<p> Current Class' Book: " + data['books']['330Book']['book_title'];
             document.getElementById("info").innerHTML += htmlString;
         };
         fetchData();
