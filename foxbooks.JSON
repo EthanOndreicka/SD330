@@ -1,0 +1,40 @@
+{
+    "courseName": {
+        "CMPT330":{
+            "course_ID": "330",
+            "course_title": "System Design",
+            "course_semester": "Spring 2023",
+            "course_professor": "Tokash"
+        },
+        "CMPT306":{
+            "course_ID": "306",
+            "course_title": "Data Communication",
+            "course_semester": "Fall 2022",
+            "course_professor": "Zhang"
+        },
+        "CMPT416":{
+            "course_ID": "416",
+            "course_title": "Intro to Cyber Security",
+            "course_semester": "Spring 2023",
+            "course_professor": "Foti"
+        }
+
+    },
+
+    "books":{
+        "SysBook": {
+            "book_isbn": "9781119736264",
+            "book_title": "CompTIA Security+ Study Guide",
+            "book_author": "Mike Chapple, David Seidl",
+            "book_course_id": "416"
+        },
+        "CysBook" : {
+            "book_isbn":"9781119547303",
+            "book_title" : "Interaction Design",
+            "book_author" : " Helen Sharp, Jennifer Preece, Yvonne Rogers",
+            "book_course_id": "330"
+
+        }
+    }
+}
+
