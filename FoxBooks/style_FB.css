@@ -142,7 +142,7 @@ nav .fa{
         padding: 30px;
     }
 }
-
+  
 footer{
     display:flex;
     background-color: rgb(219, 52, 52);
@@ -193,7 +193,7 @@ p{
 
 .process-col{
     flex-basis: 31%;
-    background: #e0fbff;
+    background: #fff3f3;
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 20px 12px;
@@ -353,12 +353,56 @@ h3{
 
 /*COURSES PAGE*/
 
-h1{
-    color: black;
+.eachCourse{
+    width: 80%;
+    margin: auto;
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 50px;
 }
-.text-box2 p{
-    color: black;
+
+.eachCourse-col{
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #ff6464;
+    padding: 25px;
+    cursor: pointer;
+    transition-duration: 0.4s;
 }
+
+.eachCourse-col:hover{
+    background:#fff3f3;
+}
+
+.eachCourse h1{
+    padding-bottom: 50px;
+}
+
+.eachCourse-col h3{
+    margin-top: -10px;
+    text-align: left;
+    font-size: 40px;
+    display: block;
+    max-width: 100%; 
+    color: white;
+}
+
+.eachCourse-col:hover{
+    background:#d3544b;
+}
+
+
+.eachCourse-col p {
+    text-align: left;
+    display: block !important;
+    clear: both;
+    font-size: 25px;
+    color: rgb(133, 46, 46);
+}
+
+
 
 
 /* ABOUT US PAGE*/

@@ -2,46 +2,86 @@
     "courses": [
       {
         "CMPT_307": "Internetworking",
+        "professor": "Robert Cannistra",
         "books": [
           {
-            "author": "John Smith",
-            "title": "Introduction to Computer Science",
-            "isbn": "978-0-13-467880-1"
+            "author": "Larry L. Peterson",
+            "title": "Computer Networks: A Systems Approach",
+            "isbn": "978-0128182000"
           },
           {
-            "author": "Mary Johnson",
-            "title": "Programming in Java",
-            "isbn": "978-0136008865"
+            "author": "Mark Newman",
+            "title": "Networks",
+            "isbn": "978-0198805090"
           }
         ]
       },
       {
         "CMPT_330": "System Design",
+        "professor": "Andrew Tokash",
         "books": [
           {
-            "author": "William Shakespeare",
-            "title": "Hamlet",
-            "isbn": "978-0-7434-7716-9"
+            "author": "Helen Sharp, Jenny Preece",
+            "title": "Interaction Design: Beyond Human-Computer Interaction",
+            "isbn": "978-1119547259"
           },
           {
-            "author": "Jane Austen",
-            "title": "Pride and Prejudice",
-            "isbn": "978-1-4909-3905-3"
+            "author": "Don Norman",
+            "title": "The Design Of Everyday Things",
+            "isbn": "978-0465050659"
+          },
+          {
+            "author": "Jon Yablonski",
+            "title": "Laws of UX: Using Psychology to Design Better Products & Services",
+            "isbn": "978-1492055310"
+          },
+          {
+            "author": "Jeff Gothelf",
+            "title": "Lean UX: Designing Great Products with Agile Teams",
+            "isbn": "978-1491953600"
           }
         ]
       },
       {
-        "CMPT_416": "Cyber Security",
+        "CMPT_416": "Intro to Cyber Security",
+        "professor": "Dominick Foti",
         "books": [
           {
-            "author": "William Shakespeare",
-            "title": "Hamlet",
-            "isbn": "978-0-7434-7716-9"
+            "author": "Mike Chapple, David Seidl",
+            "title": "CompTIA Security+ Study Guide: Exam SY0-601",
+            "isbn": "978-1119736257"
           },
           {
-            "author": "Jane Austen",
-            "title": "Pride and Prejudice",
-            "isbn": "978-1-4909-3905-3"
+            "author": "Jon Erikson",
+            "title": "Hacking: The Art of Exploitation",
+            "isbn": "978-1593271442"
+          }
+        ]
+      },
+      {
+        "CMPT_446": "Computer Graphics",
+        "professor": "William Joel",
+        "books": [
+          {
+            "author": "Steve Marschner, Peter Shirley",
+            "title": "Fundamentals of Computer Graphics",
+            "isbn": "0367505037"
+          },
+          {
+            "author": "John Kessenich, Graham Sellers",
+            "title": "OpenGL Programming Guide: The Official Guide to Learning OpenGL",
+            "isbn": "0134495497"
+          }
+        ]
+      },
+      {
+        "CMPT_446": "Data Communications",
+        "professor": "Bowu Zhang",
+        "books": [
+          {
+            "author": "James Kurose, Keith Ross",
+            "title": "Computer Networking: A Top-Down Approach",
+            "isbn": "978-0133594140"
           }
         ]
       }

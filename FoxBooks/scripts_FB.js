@@ -9,20 +9,23 @@ var navLinks = document.getElementById("navLinks")
         }
 
 
-let htmlString = "";
-    const fetchData = async () => {
-        const response = await fetch("https://EthanOndreicka.github.io/SD330/FoxBooks/FB.json");
-        const data = await response.json();
-        const courses = data['courses'];
-        for (const course of courses){
-            htmlString += "<p>Course Name: " + course['CMPT_306'] + "</p>";
-            //htmlString += "<p>Course Name: " + course['CMPT_330'] + "</p>";
-        }
-        //htmlString += "<p>Course Name: " + data['courses']['CMPT_306']['books'];
-        document.getElementById("info").innerHTML += htmlString;
-    };
-    fetchData();
-
+        let htmlString = "";
+        const fetchData = async () => {
+          const response = await fetch("https://EthanOndreicka.github.io/SD330/FoxBooks/FB.json");
+          const data = await response.json();
+          for (let i = 0; i < data.courses.length; i++) {
+            htmlString += "<p>Course Name: " + data.courses[i][Object.keys(data.courses[i])[0]];
+            htmlString += "<br>Books: ";
+            for (let j = 0; j < data.courses[i].books.length; j++) {
+              htmlString += data.courses[i].books[j].title + ", ";
+            }
+            htmlString = htmlString.slice(0, -2); // remove last comma and space
+            htmlString += "</p>";
+          }
+          document.getElementById("info").innerHTML += htmlString;
+        };
+        fetchData();
+        
 
 
     // htmlString += "<p>Course Semester: " + data['courseName']['CMPT330']['course_semester'];
