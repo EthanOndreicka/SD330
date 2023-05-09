@@ -1,0 +1,35 @@
+{
+    "courses": [
+      {
+        "CMPT_306": "Blank Name",
+        "books": [
+          {
+            "author": "John Smith",
+            "title": "Introduction to Computer Science",
+            "isbn": "978-0-13-467880-1"
+          },
+          {
+            "author": "Mary Johnson",
+            "title": "Programming in Java",
+            "isbn": "978-0136008865"
+          }
+        ]
+      },
+      {
+        "CMPT 330": "System Design",
+        "books": [
+          {
+            "author": "William Shakespeare",
+            "title": "Hamlet",
+            "isbn": "978-0-7434-7716-9"
+          },
+          {
+            "author": "Jane Austen",
+            "title": "Pride and Prejudice",
+            "isbn": "978-1-4909-3905-3"
+          }
+        ]
+      }
+    ]
+  }
+  

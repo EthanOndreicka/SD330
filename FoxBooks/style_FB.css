@@ -154,19 +154,12 @@ footer{
     color: white;
 }
 
+/* github logo */
 .fa-brands{
     color: white;
     position: relative;
     left: -10px;
 }
-
-a[href^="mailto:"]
-{ 
-  font-family: sans-serif;
-  color: rgb(204, 55, 55);
-  font-size: 40px;
-}
-
 
 /* Delivery Process */
 
@@ -418,3 +411,36 @@ h1{
    margin-bottom: 15px;
    text-align: left;
 }
+
+/* CONTACT PAGE */
+.contact-box{
+    width: 90%;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    line-height: 100px;
+}
+
+.contact-box h1{
+    font-size: 62px;
+    color: black;
+}
+
+.contact-box p{
+    margin: 10px 0 40px;
+    font-size: 30px;
+    color: black;
+}
+
+a[href^="mailto:"]
+{ 
+  font-family: sans-serif;
+  color: rgb(204, 55, 55);
+  font-size: 30px;
+}
+
