@@ -1,7 +1,7 @@
 {
     "courses": [
       {
-        "courseName": "Internetworking // Test",
+        "courseName": "Internetworking",
         "courseNumber": "CMPT_307",
         "professor": "Robert Cannistra",
         "link": "internetworking_FB.html",

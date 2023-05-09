@@ -37,13 +37,14 @@ var navLinks = document.getElementById("navLinks")
 
               var reference = document.createElement("a");
               reference.setAttribute("href", link);
+              reference.classList.add("course-link");
+              reference.appendChild(div);
           
               div.appendChild(h3);
               div.appendChild(p1);
               div.appendChild(p2);
-              div.appendChild(reference);
-          
-              courseDiv.appendChild(div);
+
+              courseDiv.appendChild(reference);
             }
           };
           
