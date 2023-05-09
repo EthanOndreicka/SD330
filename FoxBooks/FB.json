@@ -9,12 +9,16 @@
           {
             "author": "Larry L. Peterson",
             "title": "Computer Networks: A Systems Approach",
-            "isbn": "978-0128182000"
+            "isbn": "978-0128182000",
+            "price": "$89.17",
+            "image": "assets_FB/bookImages/computerNetworks.jpg"
           },
           {
             "author": "Mark Newman",
             "title": "Networks",
-            "isbn": "978-0198805090"
+            "isbn": "978-0198805090",
+            "price": "$64",
+            "image": "assets_FB/bookImages/networks.jpg"
           }
         ]
       },
@@ -27,22 +31,30 @@
           {
             "author": "Helen Sharp, Jenny Preece",
             "title": "Interaction Design: Beyond Human-Computer Interaction",
-            "isbn": "978-1119547259"
+            "isbn": "978-1119547259",
+            "price": "$56",
+            "image": "assets_FB/bookImages/interactionDesign.jpg"
           },
           {
             "author": "Don Norman",
             "title": "The Design Of Everyday Things",
-            "isbn": "978-0465050659"
+            "isbn": "978-0465050659",
+            "price": "$13",
+            "image": "assets_FB/bookImages/designOfEverday.jpg"
           },
           {
             "author": "Jon Yablonski",
             "title": "Laws of UX: Using Psychology to Design Better Products & Services",
-            "isbn": "978-1492055310"
+            "isbn": "978-1492055310",
+            "price": "$33",
+            "image": "assets_FB/bookImages/lawsOfUX.jpg"
           },
           {
             "author": "Jeff Gothelf",
             "title": "Lean UX: Designing Great Products with Agile Teams",
-            "isbn": "978-1491953600"
+            "isbn": "978-1491953600",
+            "price": "$20",
+            "image": "assets_FB/bookImages/leanUX.jpg"
           }
         ]
       },
@@ -55,12 +67,16 @@
           {
             "author": "Mike Chapple, David Seidl",
             "title": "CompTIA Security+ Study Guide: Exam SY0-601",
-            "isbn": "978-1119736257"
+            "isbn": "978-1119736257",
+            "price": "$25",
+            "image": "assets_FB/bookImages/compTIA.jpg"
           },
           {
             "author": "Jon Erikson",
             "title": "Hacking: The Art of Exploitation",
-            "isbn": "978-1593271442"
+            "isbn": "978-1593271442",
+            "price": "$30",
+            "image": "assets_FB/bookImages/hacking.jpg"
           }
         ]
       },
@@ -73,12 +89,16 @@
           {
             "author": "Steve Marschner, Peter Shirley",
             "title": "Fundamentals of Computer Graphics",
-            "isbn": "0367505037"
+            "isbn": "0367505037",
+            "price": "$65",
+            "image": "assets_FB/bookImages/funamentals.jpg"
           },
           {
             "author": "John Kessenich, Graham Sellers",
             "title": "OpenGL Programming Guide: The Official Guide to Learning OpenGL",
-            "isbn": "0134495497"
+            "isbn": "0134495497",
+            "price": "$36",
+            "image": "assets_FB/bookImages/progGuide.jpg"
           }
         ]
       },
@@ -91,7 +111,9 @@
           {
             "author": "James Kurose, Keith Ross",
             "title": "Computer Networking: A Top-Down Approach",
-            "isbn": "978-0133594140"
+            "isbn": "978-0133594140",
+            "price": "$90",
+            "image": "assets_FB/bookImages/computerNetworking.jpg"
           }
         ]
       }
