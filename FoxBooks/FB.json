@@ -1,7 +1,8 @@
 {
     "courses": [
       {
-        "CMPT_307": "Internetworking",
+        "courseName": "Internetworking",
+        "courseNumber": "CMPT_307",
         "professor": "Robert Cannistra",
         "books": [
           {
@@ -17,7 +18,8 @@
         ]
       },
       {
-        "CMPT_330": "System Design",
+        "courseName": "System Design",
+        "courseNumber": "CMPT_330",
         "professor": "Andrew Tokash",
         "books": [
           {
@@ -43,7 +45,8 @@
         ]
       },
       {
-        "CMPT_416": "Intro to Cyber Security",
+        "courseName": "Intro to CyberSecurity",
+        "courseNumber": "CMPT_416",
         "professor": "Dominick Foti",
         "books": [
           {
@@ -59,7 +62,8 @@
         ]
       },
       {
-        "CMPT_446": "Computer Graphics",
+        "courseName": "Computer Graphics",
+        "courseNumber": "CMPT_446",
         "professor": "William Joel",
         "books": [
           {
@@ -75,7 +79,8 @@
         ]
       },
       {
-        "CMPT_446": "Data Communications",
+        "courseName": "Data Communications",
+        "courseNumber": "CMPT_306",
         "professor": "Bowu Zhang",
         "books": [
           {
