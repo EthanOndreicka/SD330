@@ -21,6 +21,7 @@ var navLinks = document.getElementById("navLinks")
               const courseName = course.courseName;
               const courseNumber = course.courseNumber;
               const professor = course.professor;
+              const link = course.link;
           
               const div = document.createElement("div");
               div.classList.add("eachCourse-col");
@@ -33,10 +34,14 @@ var navLinks = document.getElementById("navLinks")
           
               const p2 = document.createElement("p");
               p2.innerText = "Professor " + professor;
+
+              var reference = document.createElement("a");
+              reference.setAttribute("href", link);
           
               div.appendChild(h3);
               div.appendChild(p1);
               div.appendChild(p2);
+              div.appendChild(reference);
           
               courseDiv.appendChild(div);
             }
