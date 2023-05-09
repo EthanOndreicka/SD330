@@ -16,9 +16,9 @@ let htmlString = "";
         const courses = data['courses'];
         for (const course of courses){
             htmlString += "<p>Course Name: " + course['CMPT_306'] + "</p>";
-            htmlString += "<p>Course Name: " + course['CMPT_330'] + "</p>";
+            //htmlString += "<p>Course Name: " + course['CMPT_330'] + "</p>";
         }
-        htmlString += "<p>Course Name: " + data['courses']['CMPT_306']['books'];
+        //htmlString += "<p>Course Name: " + data['courses']['CMPT_306']['books'];
         document.getElementById("info").innerHTML += htmlString;
     };
     fetchData();

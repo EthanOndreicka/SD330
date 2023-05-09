@@ -1,7 +1,7 @@
 {
     "courses": [
       {
-        "CMPT_306": "Blank Name",
+        "CMPT_307": "Internetworking",
         "books": [
           {
             "author": "John Smith",
@@ -17,6 +17,21 @@
       },
       {
         "CMPT_330": "System Design",
+        "books": [
+          {
+            "author": "William Shakespeare",
+            "title": "Hamlet",
+            "isbn": "978-0-7434-7716-9"
+          },
+          {
+            "author": "Jane Austen",
+            "title": "Pride and Prejudice",
+            "isbn": "978-1-4909-3905-3"
+          }
+        ]
+      },
+      {
+        "CMPT_416": "Cyber Security",
         "books": [
           {
             "author": "William Shakespeare",
