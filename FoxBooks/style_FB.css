@@ -369,6 +369,7 @@ h3{
     background: #ff6464;
     padding: 25px;
     cursor: pointer;
+    border: 3px rgba(255, 0, 0, 0) solid;
     transition-duration: 0.4s;
 }
 
@@ -391,6 +392,8 @@ h3{
 
 .eachCourse-col:hover{
     background:#d3544b;
+    border: 3px #7e0e0e solid;
+    border-color: #7e0e0e;
 }
 
 
@@ -491,3 +494,77 @@ a[href^="mailto:"]
   font-size: 30px;
 }
 
+
+/* BOOk PAge */
+
+.allBooks{
+    padding-left: 30px;
+}
+
+.eachBook{
+    float: left;
+    padding-left: 15px;
+}
+
+.innerBook{
+    background-color: #fff3f3;
+    border-radius: 10px;
+    height: 400px;
+    width: 350px;
+    position: relative; /* add this to make the child elements position relative to this container */
+}
+
+.innerBook img{
+    height: 220px;
+    width: 180px;
+    margin: auto;
+    display: block;
+    padding-top: 10px;
+}
+
+.innerBook h1{
+    position: absolute; /* add this to make the element position absolute */
+    bottom: 85px; /* bottom 50, left 10 */
+    left: 10px; /* adjust the left value as needed */
+    font-size: 20px;
+}
+
+.innerBook h2{
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    font-size: 15px;
+    color: #444444;
+}
+
+.innerBook h3{
+    position: absolute;
+    bottom: 10px; /* bottom 10, left 10 */
+    left: 10px;
+    font-size: 17px;
+    color: #696969;
+}
+
+.innerBook h4{
+    position: absolute;
+    bottom: 20px;
+    right: 10px; /* use "right" instead of "left" to position the element on the right side */
+    font-size: 17px;
+}
+
+.eachBook button{
+    margin-top: 10px;
+    background-color: #ca3737;
+    width: 350px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.eachBook button:hover{
+    background-color: #7e0e0e;
+}
