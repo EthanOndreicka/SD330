@@ -48,50 +48,57 @@ var navLinks = document.getElementById("navLinks")
             
             }
 
-               // iterate through each book in the current course
-        const books = course.books;
-          for (let j = 0; j < books.length; j++) {
-            const book = books[j];
+        // iterate through each book in the current course
 
-            const bookTitle = book.title;
-            const bookAuthor = book.author;
-            const bookISBN = book.isbn;
-            const bookPrice = book.price;
-            const bookImage = book.image;
+          const bookDiv = document.getElementById("allBook");
 
-            const bookDiv = document.createElement("div");
-            bookDiv.classList.add("book");
-
-            const bookImg = document.createElement("img");
-            bookImg.src = bookImage;
-
-            const bookInfoDiv = document.createElement("div");
-            bookInfoDiv.classList.add("book-info");
-
-            const bookTitleElem = document.createElement("h1");
-            bookTitleElem.innerText = bookTitle;
-
-            const bookAuthorElem = document.createElement("h2");
-            bookAuthorElem.innerText = bookAuthor;
-
-            const bookISBNElem = document.createElement("h3");
-            bookISBNElem.innerText = "ISBN: " + bookISBN;
-
-            const bookPriceElem = document.createElement("h4");
-            bookPriceElem.innerText = "Price: " + bookPrice;
-
-            bookInfoDiv.appendChild(bookTitleElem);
-            bookInfoDiv.appendChild(bookAuthorElem);
-            bookInfoDiv.appendChild(bookISBNElem);
-            bookInfoDiv.appendChild(bookPriceElem);
-
-            bookDiv.appendChild(bookImg);
-            bookDiv.appendChild(bookInfoDiv);
-
-            div.appendChild(bookDiv);
-          }
-          };
-          
+            for (let j = 0; j < data.courses[j].books.length; j++) {
+              const books = data.courses.books[j];
+        
+              const bookAuthor = books.author;
+              const bookTitle = books.title;
+              const bookISBN = books.isbn;
+              const bookPrice = books.price;
+              const bookImage = books.image;
+        
+              const outerDiv = document.createElement("div");
+              outerDiv.classList.add("outerBook");
+        
+              const innerDiv = document.createElement("div");
+              innerDiv.classList.add("innerBook");
+        
+              const eachBookDiv = document.createElement("div");
+              eachBookDiv.classList.add("eachBook");
+        
+              const h1 = document.createElement("h1");
+              h1.innerText = bookTitle;
+              const h2 = document.createElement("h2");
+              h2.innerText = bookAuthor;
+              const h3 = document.createElement("h3");
+              h3.innerText = bookISBN;
+              const h4 = document.createElement("h4");
+              h4.innerText = bookPrice;
+        
+              var newReference = document.createElement("img");
+              newReference.setAttribute("src", bookImage);
+              innerDiv.appendChild(h1);
+              innerDiv.appendChild(h2);
+              innerDiv.appendChild(h3);
+              innerDiv.appendChild(h4);
+        
+              outerDiv.appendChild(newReference);
+              outerDiv.appendChild(innerDiv);
+        
+              var button = document.createElement("BUTTON");
+              button.appendChild(document.createTextNode("Add To Cart"));
+        
+              eachBookDiv.appendChild(outerDiv);
+              eachBookDiv.appendChild(button);
+        
+              bookDiv.appendChild(eachBookDiv);
+            }
+      
+    };      
           fetchData();
           
           

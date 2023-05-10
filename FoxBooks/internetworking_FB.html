@@ -17,6 +17,7 @@
     <section class="header2">
         <nav>
             <a href="index_FB.html"><img src="assets_FB/FB_logo.png"></a>
+            <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
             <div class="nav-links" id="navLinks">
                  <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
@@ -28,30 +29,35 @@
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
+        <ol>
+            <li class="crumbC"><a href="index_FB.html">Home</a></li>
+            <li class="crumbC"><a href="courses_FB.html">Courses</a></li>
+            <li class="crumbC">Internetworking Books</li>
+        </ol>
         <div class="allBooks">
             <h1>Internetworking Books</h1>
             <div class="book-container">
                 <div class="eachBook">
                     <div class="innerBook">
-                        <img src="assets_FB/bookImages/interactionDesign.jpg">
-                        <h1>Interaction Design: Beyond Human-Computer Interaction</h1>
-                        <h2>Helen Sharp, Jenny Preece</h2>
-                        <h3>978-1119547259</h3>
-                        <h4>$56.00</h4>
+                        <img src="assets_FB/bookImages/computerNetworks.jpeg">
+                        <h1>Computer Networks: A Systems Approach</h1>
+                        <h2>Larry L. Peterson</h2>
+                        <h3>978-0128182000</h3>
+                        <h4>$89.17</h4>
                     </div>
                     <div class="outerBook">
-                        <a><button>Add to cart</button></a>
+                        <button>Add to cart</button>
                     </div>
                 </div>
                 <div class="eachBook">
                     <div class="innerBook">
-                        <img src="assets_FB/bookImages/designOfEveryday.jpg">
-                        <h1>The Design Of Everyday Things</h1>
-                        <h2>Don Norman</h2>
-                        <h3>978-0465050659</h3>
-                        <h4>$32.00</h4>
+                        <img src="assets_FB/bookImages/networks.jpg">
+                        <h1>Networks</h1>
+                        <h2>Mark Newman</h2>
+                        <h3>978-0198805090</h3>
+                        <h4>$64</h4>
                     </div>
-                    <div class="outerBook">
+                    <div class="outerBook" id="allBook">
                         <a><button>Add to cart</button></a>
                     </div>
                 </div>

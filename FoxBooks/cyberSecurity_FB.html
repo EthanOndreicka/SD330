@@ -14,7 +14,7 @@
     <title>FoxBooks</title>
 </head>
 <body>
-    <section class="header">
+    <section class="header2">
         <nav>
             <a href="index_FB.html"><img src="assets_FB/FB_logo.png"></a>
             <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
@@ -30,23 +30,40 @@
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
         <ol>
-            <li class="crumb"><a href="index_FB.html">Home</a></li>
-            <li class="crumb">Contact</li>
+            <li class="crumbC"><a href="index_FB.html">Home</a></li>
+            <li class="crumbC"><a href="courses_FB.html">Courses</a></li>
+            <li class="crumbC">Intro to CyberSecurity Books</li>
         </ol>
-
-        <div class="contact-box">
-            <h1>Contact Us!</h1>
-            <p>For any problems with orders, shipping, website bugs, etc.<br><br>
-                Send us an <a href="mailto:ethan.ondreicka1@marist.edu" target="_blank">email</a><br>
-                or<br>
-                Call our help line <span style="color: #ca3737; font-size: 30px;">561-779-9835</span>
-            </p>
+        <div class="allBooks">
+            <h1>Intro to CyberSecurity Books</h1>
+            <div class="book-container">
+                <div class="eachBook">
+                    <div class="innerBook">
+                        <img src="assets_FB/bookImages/compTIA.jpg">
+                        <h1>CompTIA Security+ Study Guide: Exam SY0-601</h1>
+                        <h2>Mike Chapple, David Seidl</h2>
+                        <h3>978-1119736257</h3>
+                        <h4>$25</h4>
+                    </div>
+                    <div class="outerBook">
+                        <a><button>Add to cart</button></a>
+                    </div>
+                </div>
+                <div class="eachBook">
+                    <div class="innerBook">
+                        <img src="assets_FB/bookImages/hacking.jpg">
+                        <h1>Hacking: The Art of Exploitation</h1>
+                        <h2>Jon Erikson</h2>
+                        <h3>978-1593271442</h3>
+                        <h4>$30</h4>
+                    </div>
+                    <div class="outerBook">
+                        <a><button>Add to cart</button></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <script src="scripts_FB.js"></script>
 </body>
-<footer>
-    <a href="https://ethanondreicka.github.io/SD330/index.html"><i class="fa-brands fa-github fa-lg"></i></a>
-     <small> &copy; Ethan Ondreicka   || April 2023  </small> 
- <script src="scripts_FB.js"></script>
-</footer>
 </html>

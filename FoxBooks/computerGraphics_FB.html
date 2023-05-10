@@ -14,7 +14,7 @@
     <title>FoxBooks</title>
 </head>
 <body>
-    <section class="header">
+    <section class="header2">
         <nav>
             <a href="index_FB.html"><img src="assets_FB/FB_logo.png"></a>
             <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
@@ -30,23 +30,40 @@
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
         <ol>
-            <li class="crumb"><a href="index_FB.html">Home</a></li>
-            <li class="crumb">Contact</li>
+            <li class="crumbC"><a href="index_FB.html">Home</a></li>
+            <li class="crumbC"><a href="courses_FB.html">Courses</a></li>
+            <li class="crumbC">Computer Graphics Books</li>
         </ol>
-
-        <div class="contact-box">
-            <h1>Contact Us!</h1>
-            <p>For any problems with orders, shipping, website bugs, etc.<br><br>
-                Send us an <a href="mailto:ethan.ondreicka1@marist.edu" target="_blank">email</a><br>
-                or<br>
-                Call our help line <span style="color: #ca3737; font-size: 30px;">561-779-9835</span>
-            </p>
+        <div class="allBooks">
+            <h1>Computer Graphics Books</h1>
+            <div class="book-container">
+                <div class="eachBook">
+                    <div class="innerBook">
+                        <img src="assets_FB/bookImages/funamentals.jpg">
+                        <h1>Fundamentals of Computer Graphics</h1>
+                        <h2>Steve Marschner, Peter Shirley</h2>
+                        <h3>0367505037</h3>
+                        <h4>$65</h4>
+                    </div>
+                    <div class="outerBook">
+                        <a><button>Add to cart</button></a>
+                    </div>
+                </div>
+                <div class="eachBook">
+                    <div class="innerBook">
+                        <img src="assets_FB/bookImages/progGuide.jpg">
+                        <h1>OpenGL Programming Guide: The Official Guide to Learning OpenGL</h1>
+                        <h2>John Kessenich, Graham Sellers</h2>
+                        <h3>0134495497</h3>
+                        <h4>$36</h4>
+                    </div>
+                    <div class="outerBook">
+                        <a><button>Add to cart</button></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <script src="scripts_FB.js"></script>
 </body>
-<footer>
-    <a href="https://ethanondreicka.github.io/SD330/index.html"><i class="fa-brands fa-github fa-lg"></i></a>
-     <small> &copy; Ethan Ondreicka   || April 2023  </small> 
- <script src="scripts_FB.js"></script>
-</footer>
 </html>

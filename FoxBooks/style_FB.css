@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0; 
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 .header{
@@ -142,7 +143,17 @@ nav .fa{
         padding: 30px;
     }
 }
-  
+
+input{
+    border-radius: 10px;
+    border: #ebebeb 2px solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 33px;
+    width: 350px;
+    padding-left: 10px;
+    margin-left: 50px;
+}
+
 footer{
     display:flex;
     background-color: rgb(219, 52, 52);
@@ -350,6 +361,59 @@ h3{
     }
 }
 
+/* Breadcrumns */
+.crumbs ol {
+    list-style-type: none;
+    padding-left: 20px;
+    color: white;
+}
+
+.crumb {
+    display: inline-block;
+    color: white;
+    margin-left: 10px;
+}
+
+.crumb a::after {
+    display: inline-block;
+    color: white;
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+.crumb:hover{
+    text-decoration: underline;
+}
+
+.crumb a:visited{
+    color: white;
+}
+
+
+.crumbC {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}
+
+.crumbC a::after {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    content: '>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+}
+
+.crumbC:hover{
+    text-decoration: underline;
+}
+
+.crumbC a:visited{
+    color: black;
+}
 
 /*COURSES PAGE*/
 
@@ -371,6 +435,7 @@ h3{
     cursor: pointer;
     border: 3px rgba(255, 0, 0, 0) solid;
     transition-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
 }
 
 .eachCourse-col:hover{
@@ -414,12 +479,16 @@ h3{
 /* ABOUT US PAGE*/
 .about-box{
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    max-width: 70ch;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .about-box h1{
@@ -433,34 +502,7 @@ h3{
     line-height: 1.5;
 }
 
-.staff{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    padding-top: 50px;
-}
 
-.staff-col{
-    flex-basis: 31%;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    text-align: left; 
-}
-
-.staff-col img{
-    width: 100%;
-    border-radius: 10px;
-}
-
-.staff-col p{
-   padding: 0;
-}
-
-.staff-col h3{
-   margin-top: 16px;
-   margin-bottom: 15px;
-   text-align: left;
-}
 
 /* CONTACT PAGE */
 .contact-box{
@@ -474,6 +516,7 @@ h3{
     background-color: white;
     border-radius: 20px;
     line-height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .contact-box h1{
@@ -490,7 +533,7 @@ h3{
 a[href^="mailto:"]
 { 
   font-family: sans-serif;
-  color: rgb(204, 55, 55);
+  color: #ca3737;
   font-size: 30px;
 }
 
@@ -499,11 +542,14 @@ a[href^="mailto:"]
 
 .allBooks{
     padding-left: 30px;
+    padding-top: 20px;
 }
 
 .eachBook{
     float: left;
     padding-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .innerBook{
@@ -511,7 +557,7 @@ a[href^="mailto:"]
     border-radius: 10px;
     height: 400px;
     width: 350px;
-    position: relative; /* add this to make the child elements position relative to this container */
+    position: relative; 
 }
 
 .innerBook img{
@@ -523,15 +569,15 @@ a[href^="mailto:"]
 }
 
 .innerBook h1{
-    position: absolute; /* add this to make the element position absolute */
-    bottom: 85px; /* bottom 50, left 10 */
-    left: 10px; /* adjust the left value as needed */
+    position: absolute; 
+    bottom: 60px; 
+    left: 10px; 
     font-size: 20px;
 }
 
 .innerBook h2{
     position: absolute;
-    bottom: 50px;
+    bottom: 35px;
     left: 10px;
     font-size: 15px;
     color: #444444;
@@ -539,7 +585,7 @@ a[href^="mailto:"]
 
 .innerBook h3{
     position: absolute;
-    bottom: 10px; /* bottom 10, left 10 */
+    bottom: 2px; 
     left: 10px;
     font-size: 17px;
     color: #696969;
@@ -548,7 +594,7 @@ a[href^="mailto:"]
 .innerBook h4{
     position: absolute;
     bottom: 20px;
-    right: 10px; /* use "right" instead of "left" to position the element on the right side */
+    right: 10px; 
     font-size: 17px;
 }
 

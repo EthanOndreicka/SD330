@@ -17,6 +17,7 @@
     <section class="header2">
         <nav>
             <a href="index_FB.html"><img src="assets_FB/FB_logo.png"></a>
+            <input type="text" id="searchBar" name="searchBar" placeholder="Search...">
             <div class="nav-links" id="navLinks">
                  <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
@@ -28,8 +29,13 @@
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
+        <ol>
+            <li class="crumbC"><a href="index_FB.html">Home</a></li>
+            <li class="crumbC"><a href="courses_FB.html">Courses</a></li>
+            <li class="crumbC">System Design Books</li>
+        </ol>
         <div class="allBooks">
-            <h1>Internetworking Books</h1>
+            <h1>System Design Books</h1>
             <div class="book-container">
                 <div class="eachBook">
                     <div class="innerBook">
@@ -57,11 +63,23 @@
                 </div>
                 <div class="eachBook">
                     <div class="innerBook">
-                        <img src="image">
-                        <h1>title</h1>
-                        <h2>author</h2>
-                        <h3>isbn</h3>
-                        <h4>price</h4>
+                        <img src="assets_FB/bookImages/lawsOfUX.jpg">
+                        <h1>Laws of UX: Using Psychology to Design Better Products & Services</h1>
+                        <h2>Jon Yablonski</h2>
+                        <h3>978-1492055310</h3>
+                        <h4>$33</h4>
+                    </div>
+                    <div class="outerBook">
+                        <a><button>Add to cart</button></a>
+                    </div>
+                </div>
+                <div class="eachBook">
+                    <div class="innerBook">
+                        <img src="assets_FB/bookImages/leanUX.jpg">
+                        <h1>Lean UX: Designing Great Products with Agile Teams</h1>
+                        <h2>Jeff Gothelf</h2>
+                        <h3>978-1491953600</h3>
+                        <h4>$20</h4>
                     </div>
                     <div class="outerBook">
                         <a><button>Add to cart</button></a>
@@ -72,4 +90,11 @@
     </section>
     <script src="scripts_FB.js"></script>
 </body>
+<footer>
+    <a href="https://ethanondreicka.github.io/SD330/index.html"><i class="fa-brands fa-github fa-lg"></i></a>
+     <small> &copy; Ethan Ondreicka   || April 2023  </small>
+
+ <!-- Java Script for Toggle Menu-->   
+ <script src="scripts_FB.js"></script>
+</footer>
 </html>
